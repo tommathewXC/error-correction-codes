@@ -109,9 +109,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a36317032b2a10d0d3f9db6be7f8ef37c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_udp_client.html#a36317032b2a10d0d3f9db6be7f8ef37c">UdpClient</a> (const int &amp;PORT)</td></tr>
 <tr class="memdesc:a36317032b2a10d0d3f9db6be7f8ef37c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Udp Client object.  <a href="#a36317032b2a10d0d3f9db6be7f8ef37c">More...</a><br /></td></tr>
 <tr class="separator:a36317032b2a10d0d3f9db6be7f8ef37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afff9b3d962740bde0507f4c34b205849"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_udp_client.html#afff9b3d962740bde0507f4c34b205849">send</a> (const char *msg, const short length)</td></tr>
-<tr class="memdesc:afff9b3d962740bde0507f4c34b205849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message over a UDP socket.  <a href="#afff9b3d962740bde0507f4c34b205849">More...</a><br /></td></tr>
-<tr class="separator:afff9b3d962740bde0507f4c34b205849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff031651eb312a55b66bc4ac52627a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_udp_client.html#adff031651eb312a55b66bc4ac52627a0">send</a> (const std::string &amp;input)</td></tr>
+<tr class="memdesc:adff031651eb312a55b66bc4ac52627a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message over a UDP socket.  <a href="#adff031651eb312a55b66bc4ac52627a0">More...</a><br /></td></tr>
+<tr class="separator:adff031651eb312a55b66bc4ac52627a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classi_logggable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classi_logggable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classi_logggable.html">iLogggable</a></td></tr>
 <tr class="memitem:ae7bda22bccfb292f6d9be01d3b5aaeaf inherit pub_methods_classi_logggable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classi_logggable.html#ae7bda22bccfb292f6d9be01d3b5aaeaf">error</a> (const char *msg)</td></tr>
 <tr class="memdesc:ae7bda22bccfb292f6d9be01d3b5aaeaf inherit pub_methods_classi_logggable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log an error message.  <a href="classi_logggable.html#ae7bda22bccfb292f6d9be01d3b5aaeaf">More...</a><br /></td></tr>
@@ -156,8 +156,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="afff9b3d962740bde0507f4c34b205849"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afff9b3d962740bde0507f4c34b205849">&#9670;&nbsp;</a></span>send()</h2>
+<a id="adff031651eb312a55b66bc4ac52627a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adff031651eb312a55b66bc4ac52627a0">&#9670;&nbsp;</a></span>send()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,19 +165,9 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool UdpClient::send </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>msg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const short&#160;</td>
-          <td class="paramname"><em>length</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -185,8 +175,7 @@ Public Member Functions</h2></td></tr>
 <p>Send a message over a UDP socket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">msg</td><td>The pointer to the beginning of message </td></tr>
-    <tr><td class="paramname">length</td><td>The length of the message </td></tr>
+    <tr><td class="paramname">input</td><td>std::string </td></tr>
   </table>
   </dd>
 </dl>

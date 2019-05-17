@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['decode_5fhamming347',['decode_hamming347',['../class_encoder.html#a43d67d5174ff6a829a3fa093e447e538',1,'Encoder']]]
+  ['compose',['compose',['../class_encoder.html#ac2f2f36d39af92e16c2442d9f013ce57',1,'Encoder']]]
 ];

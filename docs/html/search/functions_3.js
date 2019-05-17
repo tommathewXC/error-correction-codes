@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getkeyvaluepairs',['getKeyValuePairs',['../class_bilbo.html#a794461f514f95d4e45e3cab13013c82c',1,'Bilbo']]]
+  ['fast_5fatoi',['fast_atoi',['../class_bilbo.html#a4c567f47e8f57e753b18b5ed8fcdba8b',1,'Bilbo']]]
 ];

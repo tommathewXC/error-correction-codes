@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['udpclient',['UdpClient',['../class_udp_client.html',1,'UdpClient'],['../class_udp_client.html#a36317032b2a10d0d3f9db6be7f8ef37c',1,'UdpClient::UdpClient()']]],
-  ['udpserver',['UdpServer',['../class_udp_server.html',1,'UdpServer'],['../class_udp_server.html#abb91737f6586814939681baabb0cf9c7',1,'UdpServer::UdpServer()']]]
+  ['send',['send',['../class_udp_client.html#adff031651eb312a55b66bc4ac52627a0',1,'UdpClient']]],
+  ['serve',['serve',['../class_udp_server.html#a44bb69c6b92e55c2a667514b33782aef',1,'UdpServer']]],
+  ['split',['split',['../class_bilbo.html#abbafbc1117d01287115c7ebd08114c59',1,'Bilbo']]]
 ];

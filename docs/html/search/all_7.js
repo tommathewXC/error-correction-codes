@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['onmessage',['onMessage',['../class_udp_server.html#a233b742b64aced1d8149946361642362',1,'UdpServer']]]
+  ['log',['log',['../classi_logggable.html#abd81f07c9bacd1d223f6bf8d50c02e64',1,'iLogggable']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['log',['log',['../classi_logggable.html#abd81f07c9bacd1d223f6bf8d50c02e64',1,'iLogggable']]]
+  ['getkeyvaluepairs',['getKeyValuePairs',['../class_bilbo.html#a794461f514f95d4e45e3cab13013c82c',1,'Bilbo']]]
 ];
