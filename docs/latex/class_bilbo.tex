@@ -1,0 +1,110 @@
+\section{Bilbo Class Reference}
+\label{class_bilbo}\index{Bilbo@{Bilbo}}
+
+
+General utilties.  
+
+
+
+
+{\ttfamily \#include $<$utils.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ read\+Text\+File} (const char $\ast$path, std\+::string \&input\+Data)
+\item 
+int \textbf{ fast\+\_\+atoi} (const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em String to integer conversion. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ \textbf{ get\+Key\+Value\+Pairs} (const std\+::string \&input, const char split\+Token, const char equality)
+\begin{DoxyCompactList}\small\item\em Get the Key Value Pairs. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \textbf{ split} (const std\+::string \&input, const char delimiter)
+\begin{DoxyCompactList}\small\item\em Split a string by a delimiter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+General utilties. 
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_bilbo_a4c567f47e8f57e753b18b5ed8fcdba8b}} 
+\index{Bilbo@{Bilbo}!fast\+\_\+atoi@{fast\+\_\+atoi}}
+\index{fast\+\_\+atoi@{fast\+\_\+atoi}!Bilbo@{Bilbo}}
+\subsubsection{fast\+\_\+atoi()}
+{\footnotesize\ttfamily int Bilbo\+::fast\+\_\+atoi (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+String to integer conversion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & A const reference to the begeining of the string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The string converted to integer 
+\end{DoxyReturn}
+\mbox{\label{class_bilbo_a794461f514f95d4e45e3cab13013c82c}} 
+\index{Bilbo@{Bilbo}!get\+Key\+Value\+Pairs@{get\+Key\+Value\+Pairs}}
+\index{get\+Key\+Value\+Pairs@{get\+Key\+Value\+Pairs}!Bilbo@{Bilbo}}
+\subsubsection{get\+Key\+Value\+Pairs()}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ Bilbo\+::get\+Key\+Value\+Pairs (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input,  }\item[{const char}]{split\+Token,  }\item[{const char}]{equality }\end{DoxyParamCaption})}
+
+
+
+Get the Key Value Pairs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & A const string to split \\
+\hline
+{\em split\+Token} & The line separator \\
+\hline
+{\em equality} & The separator between keys and values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::string$>$ 
+\end{DoxyReturn}
+\mbox{\label{class_bilbo_a62d8043f94ac512b6f2851c96e4fa441}} 
+\index{Bilbo@{Bilbo}!read\+Text\+File@{read\+Text\+File}}
+\index{read\+Text\+File@{read\+Text\+File}!Bilbo@{Bilbo}}
+\subsubsection{read\+Text\+File()}
+{\footnotesize\ttfamily bool Bilbo\+::read\+Text\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path,  }\item[{std\+::string \&}]{input\+Data }\end{DoxyParamCaption})}
+
+Reads the data from the text file specified in the path and puts it inside the string 
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to the text file \\
+\hline
+{\em input\+Data} & The std\+:string into which the file content will be written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The truth whether the read worked correctly. 
+\end{DoxyReturn}
+\mbox{\label{class_bilbo_abbafbc1117d01287115c7ebd08114c59}} 
+\index{Bilbo@{Bilbo}!split@{split}}
+\index{split@{split}!Bilbo@{Bilbo}}
+\subsubsection{split()}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Bilbo\+::split (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input,  }\item[{const char}]{delimiter }\end{DoxyParamCaption})}
+
+
+
+Split a string by a delimiter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & A const string to split \\
+\hline
+{\em delimiter} & The const character to split the string by \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::string$>$ 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/utils.\+h\item 
+utils.\+cpp\end{DoxyCompactItemize}

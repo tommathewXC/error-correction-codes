@@ -1,0 +1,186 @@
+\section{Encoder Class Reference}
+\label{class_encoder}\index{Encoder@{Encoder}}
+
+
+The class that conducts error coding of string messages.  
+
+
+
+
+{\ttfamily \#include $<$encoder.\+h$>$}
+
+
+
+Inheritance diagram for Encoder\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{class_encoder__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Encoder\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{class_encoder__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ debug\+Byte} (const unsigned char \&d, const char $\ast$label)
+\begin{DoxyCompactList}\small\item\em Print out the bits in a char. \end{DoxyCompactList}\item 
+void \textbf{ decode\+\_\+hamming347} (const std\+::string \&input, std\+::string \&output)
+\begin{DoxyCompactList}\small\item\em Decode Hamming 347 codes, Reads a C++ 11 string and assumes that each character has 7 bits of hamming (7, 4) and 1 padding bit. The 7 bits are assume to be an encoded form of an original message which contained 4 bits. \end{DoxyCompactList}\item 
+\textbf{ Encoded\+Message} \textbf{ encode\+\_\+hamming347} (const std\+::string \&input)
+\begin{DoxyCompactList}\small\item\em Encode Hamming 347 codes, Reads a C++ 11 string, splits each character into two pairs of 4 bits each, and performs Hamming (7, 4) error coding. \end{DoxyCompactList}\item 
+\textbf{ Encoded\+Message} \textbf{ encode} (const std\+::string \&input, const Encoding\+Type \&enc\+Type)
+\begin{DoxyCompactList}\small\item\em Encode a given message with the chosen error coding scheme. \end{DoxyCompactList}\item 
+std\+::string \textbf{ encode\+To\+String} (const std\+::string \&input, const Encoding\+Type \&enc\+Type)
+\begin{DoxyCompactList}\small\item\em Call the base encoder, composed. \end{DoxyCompactList}\item 
+std\+::string \textbf{ compose} (const \textbf{ Encoded\+Message} \&message)
+\begin{DoxyCompactList}\small\item\em convert a message struct into a message string. \end{DoxyCompactList}\item 
+\textbf{ Encoded\+Message} \textbf{ decompose} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Construct a \doxyref{Encoded\+Message}{p.}{struct_encoded_message} object from the U\+DP message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The class that conducts error coding of string messages. 
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_encoder_ac2f2f36d39af92e16c2442d9f013ce57}} 
+\index{Encoder@{Encoder}!compose@{compose}}
+\index{compose@{compose}!Encoder@{Encoder}}
+\subsubsection{compose()}
+{\footnotesize\ttfamily std\+::string Encoder\+::compose (\begin{DoxyParamCaption}\item[{const \textbf{ Encoded\+Message} \&}]{message }\end{DoxyParamCaption})}
+
+
+
+convert a message struct into a message string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Encoding\+Message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string One byte of encoding type + The message string 
+\end{DoxyReturn}
+\mbox{\label{class_encoder_ad2535f1838162ef27e78942f13b8daf5}} 
+\index{Encoder@{Encoder}!debug\+Byte@{debug\+Byte}}
+\index{debug\+Byte@{debug\+Byte}!Encoder@{Encoder}}
+\subsubsection{debug\+Byte()}
+{\footnotesize\ttfamily void Encoder\+::debug\+Byte (\begin{DoxyParamCaption}\item[{const unsigned char \&}]{d,  }\item[{const char $\ast$}]{label }\end{DoxyParamCaption})}
+
+
+
+Print out the bits in a char. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The character byte to analyze \\
+\hline
+{\em label} & The label to print with the input \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_encoder_a43d67d5174ff6a829a3fa093e447e538}} 
+\index{Encoder@{Encoder}!decode\+\_\+hamming347@{decode\+\_\+hamming347}}
+\index{decode\+\_\+hamming347@{decode\+\_\+hamming347}!Encoder@{Encoder}}
+\subsubsection{decode\+\_\+hamming347()}
+{\footnotesize\ttfamily void Encoder\+::decode\+\_\+hamming347 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input,  }\item[{std\+::string \&}]{output }\end{DoxyParamCaption})}
+
+
+
+Decode Hamming 347 codes, Reads a C++ 11 string and assumes that each character has 7 bits of hamming (7, 4) and 1 padding bit. The 7 bits are assume to be an encoded form of an original message which contained 4 bits. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & A constant string that doesn\textquotesingle{}t change \\
+\hline
+{\em output} & Where to write the decoded output to \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_encoder_aa6569af9045177a6f3d88258d810f0a2}} 
+\index{Encoder@{Encoder}!decompose@{decompose}}
+\index{decompose@{decompose}!Encoder@{Encoder}}
+\subsubsection{decompose()}
+{\footnotesize\ttfamily \textbf{ Encoded\+Message} Encoder\+::decompose (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+
+
+
+Construct a \doxyref{Encoded\+Message}{p.}{struct_encoded_message} object from the U\+DP message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message recieved over U\+DP. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Encoded\+Message}{p.}{struct_encoded_message} The complete encapsulation of the recieved message 
+\end{DoxyReturn}
+\mbox{\label{class_encoder_aa5c9b63cb037fb89f37d204cb32d082d}} 
+\index{Encoder@{Encoder}!encode@{encode}}
+\index{encode@{encode}!Encoder@{Encoder}}
+\subsubsection{encode()}
+{\footnotesize\ttfamily \textbf{ Encoded\+Message} Encoder\+::encode (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input,  }\item[{const Encoding\+Type \&}]{enc\+Type }\end{DoxyParamCaption})}
+
+
+
+Encode a given message with the chosen error coding scheme. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & A const refrence to a C++ 11 string with the message to encode \\
+\hline
+{\em enc\+Type} & An Encoding\+Type enum indicationg what error coding to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Encoded\+Message}{p.}{struct_encoded_message} The struct that contains the error coded message and any and all meta data 
+\end{DoxyReturn}
+\mbox{\label{class_encoder_a12b14f4b1510903fa8aa546d6c6c91dc}} 
+\index{Encoder@{Encoder}!encode\+\_\+hamming347@{encode\+\_\+hamming347}}
+\index{encode\+\_\+hamming347@{encode\+\_\+hamming347}!Encoder@{Encoder}}
+\subsubsection{encode\+\_\+hamming347()}
+{\footnotesize\ttfamily \textbf{ Encoded\+Message} Encoder\+::encode\+\_\+hamming347 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Encode Hamming 347 codes, Reads a C++ 11 string, splits each character into two pairs of 4 bits each, and performs Hamming (7, 4) error coding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & A constant string that doesn\textquotesingle{}t change \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Encoded\+Message}{p.}{struct_encoded_message} The encoded message and some meta data 
+\end{DoxyReturn}
+\mbox{\label{class_encoder_aaa41f250b9389f70636d2206278f9329}} 
+\index{Encoder@{Encoder}!encode\+To\+String@{encode\+To\+String}}
+\index{encode\+To\+String@{encode\+To\+String}!Encoder@{Encoder}}
+\subsubsection{encode\+To\+String()}
+{\footnotesize\ttfamily std\+::string Encoder\+::encode\+To\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input,  }\item[{const Encoding\+Type \&}]{enc\+Type }\end{DoxyParamCaption})}
+
+
+
+Call the base encoder, composed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & A const refrence to a C++ 11 string with the message to encode \\
+\hline
+{\em enc\+Type} & An Encoding\+Type enum indicationg what error coding to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Encoded\+Message}{p.}{struct_encoded_message} The struct that contains the error coded message and any and all meta data 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/encoder.\+h\item 
+encoder.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,87 @@
+\section{Udp\+Server Class Reference}
+\label{class_udp_server}\index{Udp\+Server@{Udp\+Server}}
+
+
+Inheritance diagram for Udp\+Server\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{class_udp_server__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Udp\+Server\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{class_udp_server__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Udp\+Server} (const int port)
+\begin{DoxyCompactList}\small\item\em Construct a new Udp Server object. \end{DoxyCompactList}\item 
+bool \textbf{ serve} ()
+\begin{DoxyCompactList}\small\item\em Start the U\+DP server. \end{DoxyCompactList}\item 
+void \textbf{ on\+Message} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em The message handler when a U\+DP message is recieved on the U\+DP server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_udp_server_abb91737f6586814939681baabb0cf9c7}} 
+\index{Udp\+Server@{Udp\+Server}!Udp\+Server@{Udp\+Server}}
+\index{Udp\+Server@{Udp\+Server}!Udp\+Server@{Udp\+Server}}
+\subsubsection{Udp\+Server()}
+{\footnotesize\ttfamily Udp\+Server\+::\+Udp\+Server (\begin{DoxyParamCaption}\item[{const int}]{port }\end{DoxyParamCaption})}
+
+
+
+Construct a new Udp Server object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port to start the server on \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_udp_server_a71fcac42f7f8592434c6c1b580b1506c}} 
+\index{Udp\+Server@{Udp\+Server}!on\+Message@{on\+Message}}
+\index{on\+Message@{on\+Message}!Udp\+Server@{Udp\+Server}}
+\subsubsection{on\+Message()}
+{\footnotesize\ttfamily void Udp\+Server\+::on\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+
+
+
+The message handler when a U\+DP message is recieved on the U\+DP server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The Message recieved on the U\+DP socket \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_udp_server_a44bb69c6b92e55c2a667514b33782aef}} 
+\index{Udp\+Server@{Udp\+Server}!serve@{serve}}
+\index{serve@{serve}!Udp\+Server@{Udp\+Server}}
+\subsubsection{serve()}
+{\footnotesize\ttfamily bool Udp\+Server\+::serve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start the U\+DP server. 
+
+\begin{DoxyReturn}{Returns}
+true If the U\+DP is live and amd exited gracefully (somehow) 
+
+false If the U\+DP server could not be started 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/udpserver.\+h\item 
+main.\+cpp\item 
+udpserver.\+cpp\end{DoxyCompactItemize}
