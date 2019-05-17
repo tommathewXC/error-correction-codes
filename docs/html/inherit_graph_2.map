@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classi_logggable.html" title="iLogggable" alt="" coords="5,56,89,83"/>
+<area shape="rect" id="node2" href="$class_encoder.html" title="The class that conducts error coding of string messages. " alt="" coords="144,5,215,32"/>
+<area shape="rect" id="node3" href="$class_udp_client.html" title="UdpClient" alt="" coords="139,56,219,83"/>
+<area shape="rect" id="node4" href="$class_udp_server.html" title="UdpServer" alt="" coords="137,107,221,133"/>
+</map>
