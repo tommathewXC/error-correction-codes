@@ -26,6 +26,7 @@ public:
    * @return false  If the UDP transmission failed
    */
   bool send( const std::string & input ) ;
+
 };
 
 #endif

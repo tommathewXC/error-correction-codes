@@ -2,7 +2,8 @@
 \label{class_udp_server}\index{Udp\+Server@{Udp\+Server}}
 
 
-Inheritance diagram for Udp\+Server\+:\nopagebreak
+Inheritance diagram for Udp\+Server\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,7 +12,8 @@ Inheritance diagram for Udp\+Server\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Udp\+Server\+:\nopagebreak
+Collaboration diagram for Udp\+Server\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,7 +27,7 @@ Collaboration diagram for Udp\+Server\+:\nopagebreak
 \begin{DoxyCompactList}\small\item\em Construct a new Udp Server object. \end{DoxyCompactList}\item 
 bool \textbf{ serve} ()
 \begin{DoxyCompactList}\small\item\em Start the U\+DP server. \end{DoxyCompactList}\item 
-void \textbf{ on\+Message} (const std\+::string \&message)
+void \textbf{ on\+Message} (const char $\ast$buffer, const int \&length)
 \begin{DoxyCompactList}\small\item\em The message handler when a U\+DP message is recieved on the U\+DP server. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -48,11 +50,11 @@ Construct a new Udp Server object.
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{class_udp_server_a71fcac42f7f8592434c6c1b580b1506c}} 
+\mbox{\label{class_udp_server_a70af3b18fec2cc3368bdc7ef9621e29d}} 
 \index{Udp\+Server@{Udp\+Server}!on\+Message@{on\+Message}}
 \index{on\+Message@{on\+Message}!Udp\+Server@{Udp\+Server}}
 \subsubsection{on\+Message()}
-{\footnotesize\ttfamily void Udp\+Server\+::on\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Udp\+Server\+::on\+Message (\begin{DoxyParamCaption}\item[{const char $\ast$}]{buffer,  }\item[{const int \&}]{length }\end{DoxyParamCaption})}
 
 
 

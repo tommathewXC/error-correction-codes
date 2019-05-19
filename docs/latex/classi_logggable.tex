@@ -2,7 +2,8 @@
 \label{classi_logggable}\index{i\+Logggable@{i\+Logggable}}
 
 
-Inheritance diagram for i\+Logggable\+:\nopagebreak
+Inheritance diagram for i\+Logggable\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,6 +13,8 @@ Inheritance diagram for i\+Logggable\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \textbf{ set\+Label} (const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Set the Label name. \end{DoxyCompactList}\item 
 void \textbf{ error} (const char $\ast$msg)
 \begin{DoxyCompactList}\small\item\em Log an error message. \end{DoxyCompactList}\item 
 void \textbf{ log} (const char $\ast$msg)
@@ -47,6 +50,21 @@ Log an ordinary message.
 
 \begin{DoxyParams}{Parameters}
 {\em msg} & The message to log \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classi_logggable_ae963201357bd04cbdddd92691816c8d0}} 
+\index{i\+Logggable@{i\+Logggable}!set\+Label@{set\+Label}}
+\index{set\+Label@{set\+Label}!i\+Logggable@{i\+Logggable}}
+\subsubsection{set\+Label()}
+{\footnotesize\ttfamily void i\+Logggable\+::set\+Label (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the Label name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name which will be seen in the logger \\
 \hline
 \end{DoxyParams}
 

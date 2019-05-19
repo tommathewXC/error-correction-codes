@@ -111,6 +111,23 @@ Collaboration diagram for Encoder:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:abd165b5418381b066a4bfe70d41340a5"><td class="memItemLeft" align="right" valign="top"><a id="abd165b5418381b066a4bfe70d41340a5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Encoder</b> (const char *name)</td></tr>
+<tr class="separator:abd165b5418381b066a4bfe70d41340a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85cf50a4d926a981b39d8dcdd110a6b6"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#a85cf50a4d926a981b39d8dcdd110a6b6">fourbitHamming</a> (const unsigned char &amp;nibble)</td></tr>
+<tr class="separator:a85cf50a4d926a981b39d8dcdd110a6b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6986342c9a32104bcfd1257b4866ea3d"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#a6986342c9a32104bcfd1257b4866ea3d">checkfourbitHamming</a> (const unsigned char &amp;encoded_byte)</td></tr>
+<tr class="memdesc:a6986342c9a32104bcfd1257b4866ea3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the number of errors in a hamming coded byte. Hamming coded bytes contain 7 bits of information + 1 bit of padding.  <a href="#a6986342c9a32104bcfd1257b4866ea3d">More...</a><br /></td></tr>
+<tr class="separator:a6986342c9a32104bcfd1257b4866ea3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd775ecbca62ef7a25bfec8686f90410"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#afd775ecbca62ef7a25bfec8686f90410">reversfourBitHamming</a> (const unsigned char &amp;lower, const unsigned char &amp;upper)</td></tr>
+<tr class="memdesc:afd775ecbca62ef7a25bfec8686f90410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combine two bytes of hamming (7,4) coded data to create the original message byte.  <a href="#afd775ecbca62ef7a25bfec8686f90410">More...</a><br /></td></tr>
+<tr class="separator:afd775ecbca62ef7a25bfec8686f90410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64893c2f29b0168c922fb003b2d67606"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#a64893c2f29b0168c922fb003b2d67606">corruptNibble</a> (unsigned char &amp;buffer)</td></tr>
+<tr class="memdesc:a64893c2f29b0168c922fb003b2d67606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flip the bits in the lower nibble of the input byte reference.  <a href="#a64893c2f29b0168c922fb003b2d67606">More...</a><br /></td></tr>
+<tr class="separator:a64893c2f29b0168c922fb003b2d67606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39240b7fce3e8b0472d5616bd5387ce5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#a39240b7fce3e8b0472d5616bd5387ce5">getEncodingCount</a> ()</td></tr>
+<tr class="memdesc:a39240b7fce3e8b0472d5616bd5387ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the distinct number Encodings supported.  <a href="#a39240b7fce3e8b0472d5616bd5387ce5">More...</a><br /></td></tr>
+<tr class="separator:a39240b7fce3e8b0472d5616bd5387ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2535f1838162ef27e78942f13b8daf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#ad2535f1838162ef27e78942f13b8daf5">debugByte</a> (const unsigned char &amp;d, const char *label)</td></tr>
 <tr class="memdesc:ad2535f1838162ef27e78942f13b8daf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print out the bits in a char.  <a href="#ad2535f1838162ef27e78942f13b8daf5">More...</a><br /></td></tr>
 <tr class="separator:ad2535f1838162ef27e78942f13b8daf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,13 +143,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaa41f250b9389f70636d2206278f9329"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#aaa41f250b9389f70636d2206278f9329">encodeToString</a> (const std::string &amp;input, const EncodingType &amp;encType)</td></tr>
 <tr class="memdesc:aaa41f250b9389f70636d2206278f9329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call the base encoder, composed.  <a href="#aaa41f250b9389f70636d2206278f9329">More...</a><br /></td></tr>
 <tr class="separator:aaa41f250b9389f70636d2206278f9329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c501051ae37446a8da8607010b02857"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#a3c501051ae37446a8da8607010b02857">decode</a> (const <a class="el" href="struct_encoded_message.html">EncodedMessage</a> &amp;rec)</td></tr>
+<tr class="memdesc:a3c501051ae37446a8da8607010b02857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect the form of error coding the in the recieved messsage and perform error checking and correction.  <a href="#a3c501051ae37446a8da8607010b02857">More...</a><br /></td></tr>
+<tr class="separator:a3c501051ae37446a8da8607010b02857"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2f2f36d39af92e16c2442d9f013ce57"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#ac2f2f36d39af92e16c2442d9f013ce57">compose</a> (const <a class="el" href="struct_encoded_message.html">EncodedMessage</a> &amp;message)</td></tr>
 <tr class="memdesc:ac2f2f36d39af92e16c2442d9f013ce57"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert a message struct into a message string.  <a href="#ac2f2f36d39af92e16c2442d9f013ce57">More...</a><br /></td></tr>
 <tr class="separator:ac2f2f36d39af92e16c2442d9f013ce57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6569af9045177a6f3d88258d810f0a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_encoded_message.html">EncodedMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#aa6569af9045177a6f3d88258d810f0a2">decompose</a> (const std::string &amp;message)</td></tr>
-<tr class="memdesc:aa6569af9045177a6f3d88258d810f0a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="struct_encoded_message.html" title="The struct that contains data that encapsulates the encoding type and the encoded message...">EncodedMessage</a> object from the UDP message.  <a href="#aa6569af9045177a6f3d88258d810f0a2">More...</a><br /></td></tr>
-<tr class="separator:aa6569af9045177a6f3d88258d810f0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6528526b6c98d8b8da669271a6daacd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_encoded_message.html">EncodedMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#a6528526b6c98d8b8da669271a6daacd2">decomposeFromBuffer</a> (const char *buffer, const int &amp;bufferSize)</td></tr>
+<tr class="memdesc:a6528526b6c98d8b8da669271a6daacd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the data struct from a char buffer of a known size.  <a href="#a6528526b6c98d8b8da669271a6daacd2">More...</a><br /></td></tr>
+<tr class="separator:a6528526b6c98d8b8da669271a6daacd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classi_logggable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classi_logggable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classi_logggable.html">iLogggable</a></td></tr>
+<tr class="memitem:ae963201357bd04cbdddd92691816c8d0 inherit pub_methods_classi_logggable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classi_logggable.html#ae963201357bd04cbdddd92691816c8d0">setLabel</a> (const char *name)</td></tr>
+<tr class="memdesc:ae963201357bd04cbdddd92691816c8d0 inherit pub_methods_classi_logggable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Label name.  <a href="classi_logggable.html#ae963201357bd04cbdddd92691816c8d0">More...</a><br /></td></tr>
+<tr class="separator:ae963201357bd04cbdddd92691816c8d0 inherit pub_methods_classi_logggable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7bda22bccfb292f6d9be01d3b5aaeaf inherit pub_methods_classi_logggable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classi_logggable.html#ae7bda22bccfb292f6d9be01d3b5aaeaf">error</a> (const char *msg)</td></tr>
 <tr class="memdesc:ae7bda22bccfb292f6d9be01d3b5aaeaf inherit pub_methods_classi_logggable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log an error message.  <a href="classi_logggable.html#ae7bda22bccfb292f6d9be01d3b5aaeaf">More...</a><br /></td></tr>
 <tr class="separator:ae7bda22bccfb292f6d9be01d3b5aaeaf inherit pub_methods_classi_logggable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,6 +166,33 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The class that conducts error coding of string messages. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6986342c9a32104bcfd1257b4866ea3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6986342c9a32104bcfd1257b4866ea3d">&#9670;&nbsp;</a></span>checkfourbitHamming()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char Encoder::checkfourbitHamming </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char &amp;&#160;</td>
+          <td class="paramname"><em>encoded_byte</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks the number of errors in a hamming coded byte. Hamming coded bytes contain 7 bits of information + 1 bit of padding. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">encoded_byte</td><td>The hamming coded byte of the form 0 p1 p2 p3 d1 d2 d3 d4, where pi are the parity bits, and di are the data bits </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>unsigned char The number of errors detected. </dd></dl>
+
+</div>
+</div>
 <a id="ac2f2f36d39af92e16c2442d9f013ce57"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac2f2f36d39af92e16c2442d9f013ce57">&#9670;&nbsp;</a></span>compose()</h2>
 
@@ -167,6 +217,32 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string One byte of encoding type + The message string </dd></dl>
+
+</div>
+</div>
+<a id="a64893c2f29b0168c922fb003b2d67606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64893c2f29b0168c922fb003b2d67606">&#9670;&nbsp;</a></span>corruptNibble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Encoder::corruptNibble </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flip the bits in the lower nibble of the input byte reference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>The byte to corrupt the bits of. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -201,6 +277,32 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">d</td><td>The character byte to analyze </td></tr>
     <tr><td class="paramname">label</td><td>The label to print with the input </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3c501051ae37446a8da8607010b02857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c501051ae37446a8da8607010b02857">&#9670;&nbsp;</a></span>decode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Encoder::decode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_encoded_message.html">EncodedMessage</a> &amp;&#160;</td>
+          <td class="paramname"><em>rec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detect the form of error coding the in the recieved messsage and perform error checking and correction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rec</td><td>message reciegved over the socket. </td></tr>
   </table>
   </dd>
 </dl>
@@ -244,30 +346,41 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa6569af9045177a6f3d88258d810f0a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6569af9045177a6f3d88258d810f0a2">&#9670;&nbsp;</a></span>decompose()</h2>
+<a id="a6528526b6c98d8b8da669271a6daacd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6528526b6c98d8b8da669271a6daacd2">&#9670;&nbsp;</a></span>decomposeFromBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_encoded_message.html">EncodedMessage</a> Encoder::decompose </td>
+          <td class="memname"><a class="el" href="struct_encoded_message.html">EncodedMessage</a> Encoder::decomposeFromBuffer </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>bufferSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a <a class="el" href="struct_encoded_message.html" title="The struct that contains data that encapsulates the encoding type and the encoded message...">EncodedMessage</a> object from the UDP message. </p>
+<p>Extract the data struct from a char buffer of a known size. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>The message recieved over UDP. </td></tr>
+    <tr><td class="paramname">buffer</td><td>The UDP message buffer </td></tr>
+    <tr><td class="paramname">bufferSize</td><td>The UDP message buffer size </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_encoded_message.html" title="The struct that contains data that encapsulates the encoding type and the encoded message...">EncodedMessage</a> The complete encapsulation of the recieved message </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_encoded_message.html" title="The struct that contains data that encapsulates the encoding type and the encoded message...">EncodedMessage</a> The struct with the encoded message </dd></dl>
 
 </div>
 </div>
@@ -371,6 +484,102 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_encoded_message.html" title="The struct that contains data that encapsulates the encoding type and the encoded message...">EncodedMessage</a> The struct that contains the error coded message and any and all meta data </dd></dl>
+
+</div>
+</div>
+<a id="a85cf50a4d926a981b39d8dcdd110a6b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85cf50a4d926a981b39d8dcdd110a6b6">&#9670;&nbsp;</a></span>fourbitHamming()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char Encoder::fourbitHamming </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char &amp;&#160;</td>
+          <td class="paramname"><em>nibble</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Input : 0 0 0 0 d1 d2 d3 d4 Output: 0 p1 p2 p3 d1 d2 d3 d4</p>
+<p>Where: </p><pre class="fragment"> p1 = d1 + d2 + d4
+ p2 = d1 + d3 + d4
+ p3 = d2 + d3 + d4
+</pre><p>and di, pi ∈ [0, 1]</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nibble</td><td>Lower 4 bites of this byte of data is the message to encode </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>char A byte of data 7 bits of encoded data + 1 padding bit, by performing Haming (7, 4) encoding. </dd></dl>
+
+</div>
+</div>
+<a id="a39240b7fce3e8b0472d5616bd5387ce5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39240b7fce3e8b0472d5616bd5387ce5">&#9670;&nbsp;</a></span>getEncodingCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Encoder::getEncodingCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the distinct number Encodings supported. </p>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="afd775ecbca62ef7a25bfec8686f90410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd775ecbca62ef7a25bfec8686f90410">&#9670;&nbsp;</a></span>reversfourBitHamming()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char Encoder::reversfourBitHamming </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char &amp;&#160;</td>
+          <td class="paramname"><em>lower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char &amp;&#160;</td>
+          <td class="paramname"><em>upper</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Combine two bytes of hamming (7,4) coded data to create the original message byte. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lower</td><td>The hamming coded byte of the lower nibble </td></tr>
+    <tr><td class="paramname">upper</td><td>The hamming coded byte of the upper nibble </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>unsigned char The reconstructed byte from the data bits of the lower and upper nibbles </dd></dl>
 
 </div>
 </div>

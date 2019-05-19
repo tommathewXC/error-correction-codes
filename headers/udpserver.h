@@ -7,7 +7,6 @@ class UdpServer: public iLogggable {
 
 private:
   short port = 9000;
-  const std::string label = "UdpServer";
 
 public:
 
@@ -17,6 +16,7 @@ public:
    * @param port The port to start the server on
    */
   UdpServer( const int port );
+
 
   /**
    * @brief Start the UDP server
@@ -31,7 +31,7 @@ public:
    * 
    * @param message The Message recieved on the UDP socket
    */
-  void onMessage( const std::string & message );
+  void onMessage( const char * buffer, const int & length );
 };
 
 #endif

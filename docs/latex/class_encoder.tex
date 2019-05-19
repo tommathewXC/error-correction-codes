@@ -11,7 +11,8 @@ The class that conducts error coding of string messages.
 
 
 
-Inheritance diagram for Encoder\+:\nopagebreak
+Inheritance diagram for Encoder\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for Encoder\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Encoder\+:\nopagebreak
+Collaboration diagram for Encoder\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,6 +32,19 @@ Collaboration diagram for Encoder\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\label{class_encoder_abd165b5418381b066a4bfe70d41340a5}} 
+{\bfseries Encoder} (const char $\ast$name)
+\item 
+unsigned char \textbf{ fourbit\+Hamming} (const unsigned char \&nibble)
+\item 
+unsigned char \textbf{ checkfourbit\+Hamming} (const unsigned char \&encoded\+\_\+byte)
+\begin{DoxyCompactList}\small\item\em Checks the number of errors in a hamming coded byte. Hamming coded bytes contain 7 bits of information + 1 bit of padding. \end{DoxyCompactList}\item 
+unsigned char \textbf{ reversfour\+Bit\+Hamming} (const unsigned char \&lower, const unsigned char \&upper)
+\begin{DoxyCompactList}\small\item\em Combine two bytes of hamming (7,4) coded data to create the original message byte. \end{DoxyCompactList}\item 
+void \textbf{ corrupt\+Nibble} (unsigned char \&buffer)
+\begin{DoxyCompactList}\small\item\em Flip the bits in the lower nibble of the input byte reference. \end{DoxyCompactList}\item 
+int \textbf{ get\+Encoding\+Count} ()
+\begin{DoxyCompactList}\small\item\em Get the distinct number Encodings supported. \end{DoxyCompactList}\item 
 void \textbf{ debug\+Byte} (const unsigned char \&d, const char $\ast$label)
 \begin{DoxyCompactList}\small\item\em Print out the bits in a char. \end{DoxyCompactList}\item 
 void \textbf{ decode\+\_\+hamming347} (const std\+::string \&input, std\+::string \&output)
@@ -40,16 +55,36 @@ void \textbf{ decode\+\_\+hamming347} (const std\+::string \&input, std\+::strin
 \begin{DoxyCompactList}\small\item\em Encode a given message with the chosen error coding scheme. \end{DoxyCompactList}\item 
 std\+::string \textbf{ encode\+To\+String} (const std\+::string \&input, const Encoding\+Type \&enc\+Type)
 \begin{DoxyCompactList}\small\item\em Call the base encoder, composed. \end{DoxyCompactList}\item 
+void \textbf{ decode} (const \textbf{ Encoded\+Message} \&rec)
+\begin{DoxyCompactList}\small\item\em Detect the form of error coding the in the recieved messsage and perform error checking and correction. \end{DoxyCompactList}\item 
 std\+::string \textbf{ compose} (const \textbf{ Encoded\+Message} \&message)
 \begin{DoxyCompactList}\small\item\em convert a message struct into a message string. \end{DoxyCompactList}\item 
-\textbf{ Encoded\+Message} \textbf{ decompose} (const std\+::string \&message)
-\begin{DoxyCompactList}\small\item\em Construct a \doxyref{Encoded\+Message}{p.}{struct_encoded_message} object from the U\+DP message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\textbf{ Encoded\+Message} \textbf{ decompose\+From\+Buffer} (const char $\ast$buffer, const int \&buffer\+Size)
+\begin{DoxyCompactList}\small\item\em Extract the data struct from a char buffer of a known size. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 The class that conducts error coding of string messages. 
 
 \subsection{Member Function Documentation}
+\mbox{\label{class_encoder_a6986342c9a32104bcfd1257b4866ea3d}} 
+\index{Encoder@{Encoder}!checkfourbit\+Hamming@{checkfourbit\+Hamming}}
+\index{checkfourbit\+Hamming@{checkfourbit\+Hamming}!Encoder@{Encoder}}
+\subsubsection{checkfourbit\+Hamming()}
+{\footnotesize\ttfamily unsigned char Encoder\+::checkfourbit\+Hamming (\begin{DoxyParamCaption}\item[{const unsigned char \&}]{encoded\+\_\+byte }\end{DoxyParamCaption})}
+
+
+
+Checks the number of errors in a hamming coded byte. Hamming coded bytes contain 7 bits of information + 1 bit of padding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encoded\+\_\+byte} & The hamming coded byte of the form 0 p1 p2 p3 d1 d2 d3 d4, where pi are the parity bits, and di are the data bits \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned char The number of errors detected. 
+\end{DoxyReturn}
 \mbox{\label{class_encoder_ac2f2f36d39af92e16c2442d9f013ce57}} 
 \index{Encoder@{Encoder}!compose@{compose}}
 \index{compose@{compose}!Encoder@{Encoder}}
@@ -68,6 +103,21 @@ convert a message struct into a message string.
 \begin{DoxyReturn}{Returns}
 std\+::string One byte of encoding type + The message string 
 \end{DoxyReturn}
+\mbox{\label{class_encoder_a64893c2f29b0168c922fb003b2d67606}} 
+\index{Encoder@{Encoder}!corrupt\+Nibble@{corrupt\+Nibble}}
+\index{corrupt\+Nibble@{corrupt\+Nibble}!Encoder@{Encoder}}
+\subsubsection{corrupt\+Nibble()}
+{\footnotesize\ttfamily void Encoder\+::corrupt\+Nibble (\begin{DoxyParamCaption}\item[{unsigned char \&}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Flip the bits in the lower nibble of the input byte reference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The byte to corrupt the bits of. \\
+\hline
+\end{DoxyParams}
 \mbox{\label{class_encoder_ad2535f1838162ef27e78942f13b8daf5}} 
 \index{Encoder@{Encoder}!debug\+Byte@{debug\+Byte}}
 \index{debug\+Byte@{debug\+Byte}!Encoder@{Encoder}}
@@ -83,6 +133,21 @@ Print out the bits in a char.
 {\em d} & The character byte to analyze \\
 \hline
 {\em label} & The label to print with the input \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_encoder_a3c501051ae37446a8da8607010b02857}} 
+\index{Encoder@{Encoder}!decode@{decode}}
+\index{decode@{decode}!Encoder@{Encoder}}
+\subsubsection{decode()}
+{\footnotesize\ttfamily void Encoder\+::decode (\begin{DoxyParamCaption}\item[{const \textbf{ Encoded\+Message} \&}]{rec }\end{DoxyParamCaption})}
+
+
+
+Detect the form of error coding the in the recieved messsage and perform error checking and correction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rec} & message reciegved over the socket. \\
 \hline
 \end{DoxyParams}
 \mbox{\label{class_encoder_a43d67d5174ff6a829a3fa093e447e538}} 
@@ -102,23 +167,25 @@ Decode Hamming 347 codes, Reads a C++ 11 string and assumes that each character 
 {\em output} & Where to write the decoded output to \\
 \hline
 \end{DoxyParams}
-\mbox{\label{class_encoder_aa6569af9045177a6f3d88258d810f0a2}} 
-\index{Encoder@{Encoder}!decompose@{decompose}}
-\index{decompose@{decompose}!Encoder@{Encoder}}
-\subsubsection{decompose()}
-{\footnotesize\ttfamily \textbf{ Encoded\+Message} Encoder\+::decompose (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+\mbox{\label{class_encoder_a6528526b6c98d8b8da669271a6daacd2}} 
+\index{Encoder@{Encoder}!decompose\+From\+Buffer@{decompose\+From\+Buffer}}
+\index{decompose\+From\+Buffer@{decompose\+From\+Buffer}!Encoder@{Encoder}}
+\subsubsection{decompose\+From\+Buffer()}
+{\footnotesize\ttfamily \textbf{ Encoded\+Message} Encoder\+::decompose\+From\+Buffer (\begin{DoxyParamCaption}\item[{const char $\ast$}]{buffer,  }\item[{const int \&}]{buffer\+Size }\end{DoxyParamCaption})}
 
 
 
-Construct a \doxyref{Encoded\+Message}{p.}{struct_encoded_message} object from the U\+DP message. 
+Extract the data struct from a char buffer of a known size. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em message} & The message recieved over U\+DP. \\
+{\em buffer} & The U\+DP message buffer \\
+\hline
+{\em buffer\+Size} & The U\+DP message buffer size \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\doxyref{Encoded\+Message}{p.}{struct_encoded_message} The complete encapsulation of the recieved message 
+\doxyref{Encoded\+Message}{p.}{struct_encoded_message} The struct with the encoded message 
 \end{DoxyReturn}
 \mbox{\label{class_encoder_aa5c9b63cb037fb89f37d204cb32d082d}} 
 \index{Encoder@{Encoder}!encode@{encode}}
@@ -177,6 +244,63 @@ Call the base encoder, composed.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 \doxyref{Encoded\+Message}{p.}{struct_encoded_message} The struct that contains the error coded message and any and all meta data 
+\end{DoxyReturn}
+\mbox{\label{class_encoder_a85cf50a4d926a981b39d8dcdd110a6b6}} 
+\index{Encoder@{Encoder}!fourbit\+Hamming@{fourbit\+Hamming}}
+\index{fourbit\+Hamming@{fourbit\+Hamming}!Encoder@{Encoder}}
+\subsubsection{fourbit\+Hamming()}
+{\footnotesize\ttfamily unsigned char Encoder\+::fourbit\+Hamming (\begin{DoxyParamCaption}\item[{const unsigned char \&}]{nibble }\end{DoxyParamCaption})}
+
+Input \+: 0 0 0 0 d1 d2 d3 d4 Output\+: 0 p1 p2 p3 d1 d2 d3 d4
+
+Where\+: \begin{DoxyVerb} p1 = d1 + d2 + d4
+ p2 = d1 + d3 + d4
+ p3 = d2 + d3 + d4
+\end{DoxyVerb}
+
+
+and di, pi ∈ [0, 1]
+
+
+\begin{DoxyParams}{Parameters}
+{\em nibble} & Lower 4 bites of this byte of data is the message to encode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char A byte of data 7 bits of encoded data + 1 padding bit, by performing Haming (7, 4) encoding. 
+\end{DoxyReturn}
+\mbox{\label{class_encoder_a39240b7fce3e8b0472d5616bd5387ce5}} 
+\index{Encoder@{Encoder}!get\+Encoding\+Count@{get\+Encoding\+Count}}
+\index{get\+Encoding\+Count@{get\+Encoding\+Count}!Encoder@{Encoder}}
+\subsubsection{get\+Encoding\+Count()}
+{\footnotesize\ttfamily int Encoder\+::get\+Encoding\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the distinct number Encodings supported. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\label{class_encoder_afd775ecbca62ef7a25bfec8686f90410}} 
+\index{Encoder@{Encoder}!reversfour\+Bit\+Hamming@{reversfour\+Bit\+Hamming}}
+\index{reversfour\+Bit\+Hamming@{reversfour\+Bit\+Hamming}!Encoder@{Encoder}}
+\subsubsection{reversfour\+Bit\+Hamming()}
+{\footnotesize\ttfamily unsigned char Encoder\+::reversfour\+Bit\+Hamming (\begin{DoxyParamCaption}\item[{const unsigned char \&}]{lower,  }\item[{const unsigned char \&}]{upper }\end{DoxyParamCaption})}
+
+
+
+Combine two bytes of hamming (7,4) coded data to create the original message byte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & The hamming coded byte of the lower nibble \\
+\hline
+{\em upper} & The hamming coded byte of the upper nibble \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned char The reconstructed byte from the data bits of the lower and upper nibbles 
 \end{DoxyReturn}
 
 

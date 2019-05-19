@@ -16,8 +16,7 @@ bool UdpServer::serve(){
   char buffer[ BUFFER_SIZE ] = {0};
   struct sockaddr_in address, client;
   int sockFd = socket( AF_INET, SOCK_DGRAM, 0 );
-  socklen_t length;
-  std::string message = "";
+  socklen_t length = sizeof( client );
   int bindInd, N;
   if( sockFd < 0 ){
     this->error( "Could not create socket" );
@@ -33,12 +32,9 @@ bool UdpServer::serve(){
     }else{
       this->log( "Listening..." );
       while( true ){
-        memset( &buffer, '\0', sizeof(buffer) );
-        N = recvfrom( sockFd, (char *)buffer, BUFFER_SIZE, MSG_WAITALL, (struct sockaddr *)&client, &length );
-        message.clear();
-        message = buffer;
-        std::cout << buffer << std::endl;
-        this->onMessage( message );
+        memset( buffer, '\0', sizeof(buffer) );
+        N = recvfrom( sockFd, ( char *) buffer, BUFFER_SIZE, MSG_WAITALL, (struct sockaddr *)&client, &length );
+        this->onMessage( buffer, BUFFER_SIZE );
         std::this_thread::sleep_for( std::chrono::microseconds( 1000 ) );
       }
     }
@@ -49,4 +45,5 @@ bool UdpServer::serve(){
 
 UdpServer::UdpServer( const int port  ){
   this->port = port;
+  this->setLabel( "UdpServer" );
 }
