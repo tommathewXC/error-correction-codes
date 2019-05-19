@@ -26,7 +26,24 @@ The following are the implemented error detection/correction codes
 
 ## Getting Started
 
+### Core Services
+
 The core error coding services come from the executable "error_coder". There is a python script "kickoff" that delegates some CLI calls. You can start and stop the server with kickoff. But sending messages to the UDP server has to be done through the executble.
+
+ The <b>kickoff</b> script acts as a clean command line interface to error_coder. The following are the supported commands:
+ 
+ * --start [ --s, -s, -start]: A flag requesting to start the server.
+ * --stop [ --e, -e, -end, --end]: A flag requesting to stop the server.
+ * --p: The port to run the server and client on. 
+ * --l [-l, --logfile, -logile]: The path to the logfile where the output from the UDP server would go.
+ * --c [--clear]: A flag requesting to clear the UDP server logfile.
+ 
+The <b>error_coder</b> application also accepts command-line inputs. The following are the supported commands:
+
+ * --p: The port to run the server/client on.
+ * --m: A number signifying which mode to run error_coder in. 1 = Client, 2 = Server. 
+ * --i: A string/sequence of characters: The string message to encode and transmit if running error_coder in client mode.
+ * --c: The error code to use. 1 = clear text. 2  = Hamming(7,4)
 
 ### Installing
 
@@ -35,40 +52,42 @@ The core error coding services come from the executable "error_coder". There is 
  make clean all - Build the project
  
  sudo make install - install error_coder to /usr/local/bin
+ 
+## Examples
 
 ### Starting the UDP listener server on 8888 (background + logfile)
 
 ./kickoff --start --p 8888
 
-Note that even though error_coder 's UDP server is blocking, calling it through kickoff runs it in the background and 
-traps the logs to a configurable path (Defaults to /tmp/error_correction_server.log)
+ Note that even though error_coder 's UDP server is blocking, calling it through kickoff runs it in the background and 
+ traps the logs to a configurable path (Defaults to /tmp/error_correction_server.log)
 
 ### Starting the UDP listener server on 8888 (foreground + console logs)
 
-error_coder --p 8888 --m 2
+ error_coder --p 8888 --m 2
 
 ### Ending the UDP listener server (non blocking)
 
-./kickoff --stop
+ ./kickoff --stop
 
 ### Send an error encoded message to the UDP server - Clear (blocking)
 
-This is an example of sending the phrase "Hola" to the UDP server 
-where each byte is sent without encoding.
+ This is an example of sending the phrase "Hola" to the UDP server 
+ where each byte is sent without encoding.
 
-error_coder --p 8888 --m 1 --c 1 --i Hola
+ error_coder --p 8888 --m 1 --c 1 --i Hola
 
 ### Send an error encoded message to the UDP server - Hamming (blocking)
 
-This is an example of sending the phrase "Hello" to the UDP server 
-where each byte is encoded with Hamming (7, 4) coding
+ This is an example of sending the phrase "Hello" to the UDP server 
+ where each byte is encoded with Hamming (7, 4) coding
 
-error_coder --p 8888 --m 1 --c 2 --i Hello
+ error_coder --p 8888 --m 1 --c 2 --i Hello
 
 ### Clear the log files (blocking)
 
-./kickoff --clear
+ ./kickoff --clear
 
 ### Tail the log files
 
-tail -f /tmp/error_correction_server.log
+ tail -f /tmp/error_correction_server.log
