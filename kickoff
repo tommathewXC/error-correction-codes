@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+
+if __name__ == "__main__":
+
+    import argparse, subprocess, time
+
+    class Thorin( object ):
+
+        def __init__( self ):
+            self.logPath = "/tmp/error_correction_server.log"
+            parser = argparse.ArgumentParser()
+            parser.add_argument("--s", "-s", "-start", "--start", help="Start the UDP server", action="store_true" )
+            parser.add_argument( "--e", "-e", "-end", "--end", "--stop", help="Stop the UDP server", action="store_true" )
+            parser.add_argument( "--p", help="Set the port to send and recieve", type=int, default=8000 )
+            parser.add_argument( "--l", "-l", "--logfile", "-logfile", type=str, default=self.logPath )
+            parser.add_argument( "--c", "--clear", action="store_true", help="clear the log file")
+            args = parser.parse_args()
+            self.startFlag = bool( args.s )
+            self.stopFlag = bool( args.e )
+            self.clearLog = bool( args.c )
+            self.port = args.p
+            self.logPath = args.l
+            self._r = lambda comm: subprocess.check_output( comm, shell=True )
+            self.start = lambda: self.runSafely(
+                "error_coder --p {} --m 2 > {} 2>&1 &".format( self.port, self.logPath ), 
+                "Successfully starter server", "An error occured when trying to start" )
+            self.end = lambda: self.runSafely(
+                "pkill error_coder", 
+                "Successfully ended server", "An error occured when trying to end" )
+            self.clear = lambda: self._r("echo '' > {}".format( self.logPath ) )
+
+        def execute( self ):
+            if self.startFlag and self.stopFlag:
+                raise ValueError("Can't start and end at the same time, brother")
+            dosomethingImportant = lambda: self.start() if self.startFlag else self.end()
+            dosomethingImportant() if (self.startFlag or self.stopFlag ) else None
+            self.clear() if self.clearLog else None
+
+        def runSafely( self, comm, defaultMessage, errMesssage ):
+            try:
+                print( defaultMessage, self._r( comm ) )
+            except Exception as e:
+                print( errMesssage, str(e))
+
+    t = Thorin()
+    t.execute()
