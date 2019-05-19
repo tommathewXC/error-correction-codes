@@ -19,7 +19,9 @@ The UDP server, if alive, will recieve the coded message, detect the chosen erro
 
 The following are the implemented error detection/correction codes
 
-* Hamming (7, 3) 
+* [Hamming (7, 3)](https://en.wikipedia.org/wiki/Hamming_code#[7,4]_Hamming_code)
+ 
+  Currently only detecting but not correcting errors.
 
 
 ## Getting Started
