@@ -6,6 +6,8 @@
 
 #define MESSAGE_SIZE 4096
 
+extern const int CodesSupported = 3;
+
 /**
  * @brief The enum of the encoding type
  * 
@@ -89,7 +91,7 @@ public:
    * 
    * @return int 
    */
-  int getEncodingCount() { return 3; };
+  int getEncodingCount() { return CodesSupported; };
 
   /**
    * @brief         Print out the bits in a char
@@ -113,7 +115,9 @@ public:
   /**
    * @brief         Encode Hamming 347 codes, Reads a C++ 11 string, splits each character
    *                into two pairs of 4 bits each, and performs Hamming (7, 4) error 
-   *                coding.
+   *                coding. Each 4-bit nibble gets exanded to a byte, so the message size
+   *                doubles, when you include the parity bit. In the future, if the message 
+   *                size is some multiple of eight, we might be safely discard some bits.
    * 
    * @param input             A constant string that doesn't change
    * @return EncodedMessage   The encoded message and some meta data
