@@ -5,9 +5,9 @@ This project implements error codes in C++ 11 as an exercise.
 
 ## Error Detection and Correction
 
-Error codes are algorithms that ensure data integrity of binary data. When data travels through
-arbitrary media through space (like in communication systems), or through time (like in storage/database systems), there is always the possibility that some of the information bits get corrupted and flipped. With the use of error correction algorithms, it is possible to add 
-some extra bits to the raw message such that if some bit corruptions occur, it can be detected. Using these extra error correction bits, it can also be possible to correct any errors that may have occured, and retrieve the original message.
+Error codes are algorithms that ensure the integrity of binary data. When data travels through
+arbitrary media through space (like in communication systems), or through time (like in storage/database systems), there is always the possibility that some of the information bits could get corrupted and flipped. With the use of error correction algorithms, it is possible to add 
+some extra bits of information to the raw data so that if some corruptions were to occur, they can be detected. Using these extra error correction bits, it can also be possible to correct any errors that may have occured, and retrieve the uncorrupted raw data.
 
 
 ### Implementation:
