@@ -52,6 +52,7 @@ EncodedMessage Encoder::decomposeFromBuffer( const char * buffer, const int & bu
           if (buffer[i] != '|' ){
             messageSize += buffer[i];
           }else{
+            this->log( (std::string("Found message of size: " )+ messageSize).c_str() );
             mSize = b.fast_atoi( messageSize.c_str() );
             foundSize = true;
           }
@@ -59,6 +60,7 @@ EncodedMessage Encoder::decomposeFromBuffer( const char * buffer, const int & bu
           if( buffer[i] == '|' && buffer[ i + 1 ] == '|' ){
             i = bufferSize;
             foundMessage = true;
+            this->log( (std::string("Found message: " )+ m.message).c_str() );
           }else{
             m.message += buffer[i];
           }
@@ -78,11 +80,10 @@ void Encoder::decode_hamming347( const std::string &input, std::string &output )
   output.clear();
   output.resize(0);
   unsigned char errorCount = 0;
-  for( int i =0; i < (input.size() / 2) + 1; i++ ){
+  for( int i =0; i < input.size(); i+=2 ){
     errorCount += checkfourbitHamming( input.at(i) );
     errorCount += checkfourbitHamming( input.at(i+1) );
     output += reversfourBitHamming( input.at(i), input.at(i + 1) );
-    i += 1;
   }
   std::string l = "\tTotal errors: " + std::to_string( errorCount );
   this->log( l.c_str() );

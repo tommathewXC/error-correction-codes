@@ -30,10 +30,6 @@ int main( const int argc, const char ** arguments ){
   port = g.fast_atoi( kv["--p"].c_str() );
   mode = g.fast_atoi( kv["--m"].c_str() );
   coding = g.fast_atoi( kv["--c"].c_str() );
-  if( port == -1 ){
-    std::cout << "No port selected. ex. --p 8888" << std::endl;
-    return 1;
-  }
   if( port < 5000 || port > 10000 ){
     std::cout << "5000 < port < 10000" << std::endl;
     return 1;

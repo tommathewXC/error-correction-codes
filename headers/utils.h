@@ -68,9 +68,9 @@
       /**
        * @brief           Extract key value pairs from the command line and pass it into a string map
        * 
-       * @param argc 
-       * @param arguments 
-       * @param kv 
+       * @param argc      The number of CLI arguments
+       * @param arguments The arguments passed in
+       * @param kv        The key-value storage that will be updated.
        */
       void cli( const int argc, const char ** arguments, std::unordered_map< std::string, std::string> &kv );
   };
