@@ -26,17 +26,26 @@ The following are the implemented error detection/correction codes
 
 ## Getting Started
 
-The core error coding services come from the executable "error_coder". There is a python scripts kickoff that delegates some CLI calls. You can start and stop the server with kickoff. But sending messages to the UDP server has to be done through the executble.
+The core error coding services come from the executable "error_coder". There is a python script "kickoff" that delegates some CLI calls. You can start and stop the server with kickoff. But sending messages to the UDP server has to be done through the executble.
 
 ### Installing
 
-make pre
-make clean all
-sudo make install
+ make pre - Install all the needed dependancies
+ 
+ make clean all - Build the project
+ 
+ sudo make install - install error_coder to /usr/local/bin
 
-### Starting the UDP listener server on 8888 (non blocking)
+### Starting the UDP listener server on 8888 (background + logfile)
 
 ./kickoff --start --p 8888
+
+Note that even though error_coder 's UDP server is blocking, calling it through kickoff runs it in the background and 
+traps the logs to a configurable path (Defaults to /tmp/error_correction_server.log)
+
+### Starting the UDP listener server on 8888 (foreground + console logs)
+
+error_coder --p 8888 --m 2
 
 ### Ending the UDP listener server (non blocking)
 
