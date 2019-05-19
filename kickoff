@@ -5,6 +5,8 @@ if __name__ == "__main__":
     import argparse, subprocess, time
 
     class Thorin( object ):
+        """Thorin kicks things off
+        """
 
         def __init__( self ):
             self.logPath = "/tmp/error_correction_server.log"
@@ -15,21 +17,24 @@ if __name__ == "__main__":
             parser.add_argument( "--l", "-l", "--logfile", "-logfile", type=str, default=self.logPath )
             parser.add_argument( "--c", "--clear", action="store_true", help="clear the log file")
             args = parser.parse_args()
+            self._sc = "error_coder --p {} --m 2 > {} 2>&1 &"
+            self._stc = "pkill error_coder"
+            self._suc = "Successfully starter server"
+            self._stp = "Successfully ended server"
+            self._bad = "An error occured when trying to {}"
             self.startFlag = bool( args.s )
             self.stopFlag = bool( args.e )
             self.clearLog = bool( args.c )
             self.port = args.p
             self.logPath = args.l
             self._r = lambda comm: subprocess.check_output( comm, shell=True )
-            self.start = lambda: self.runSafely(
-                "error_coder --p {} --m 2 > {} 2>&1 &".format( self.port, self.logPath ), 
-                "Successfully starter server", "An error occured when trying to start" )
-            self.end = lambda: self.runSafely(
-                "pkill error_coder", 
-                "Successfully ended server", "An error occured when trying to end" )
+            self.start = lambda: self.runSafely( self._sc.format( self.port, self.logPath ),  self._suc, self._bad.format("start") )
+            self.end = lambda: self.runSafely( self._stc,  self._stp, self._bad.format("end") )
             self.clear = lambda: self._r("echo '' > {}".format( self.logPath ) )
 
         def execute( self ):
+            """Execute the user supplied commands.
+            """
             if self.startFlag and self.stopFlag:
                 raise ValueError("Can't start and end at the same time, brother")
             dosomethingImportant = lambda: self.start() if self.startFlag else self.end()

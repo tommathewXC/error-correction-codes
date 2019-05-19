@@ -50,7 +50,7 @@ void \textbf{ debug\+Byte} (const unsigned char \&d, const char $\ast$label)
 void \textbf{ decode\+\_\+hamming347} (const std\+::string \&input, std\+::string \&output)
 \begin{DoxyCompactList}\small\item\em Decode Hamming 347 codes, Reads a C++ 11 string and assumes that each character has 7 bits of hamming (7, 4) and 1 padding bit. The 7 bits are assume to be an encoded form of an original message which contained 4 bits. \end{DoxyCompactList}\item 
 \textbf{ Encoded\+Message} \textbf{ encode\+\_\+hamming347} (const std\+::string \&input)
-\begin{DoxyCompactList}\small\item\em Encode Hamming 347 codes, Reads a C++ 11 string, splits each character into two pairs of 4 bits each, and performs Hamming (7, 4) error coding. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Encode Hamming 347 codes, Reads a C++ 11 string, splits each character into two pairs of 4 bits each, and performs Hamming (7, 4) error coding. Each 4-\/bit nibble gets exanded to a byte, so the message size doubles, when you include the parity bit. In the future, if the message size is some multiple of eight, we might be safely discard some bits. \end{DoxyCompactList}\item 
 \textbf{ Encoded\+Message} \textbf{ encode} (const std\+::string \&input, const Encoding\+Type \&enc\+Type)
 \begin{DoxyCompactList}\small\item\em Encode a given message with the chosen error coding scheme. \end{DoxyCompactList}\item 
 std\+::string \textbf{ encode\+To\+String} (const std\+::string \&input, const Encoding\+Type \&enc\+Type)
@@ -215,7 +215,7 @@ Encode a given message with the chosen error coding scheme.
 
 
 
-Encode Hamming 347 codes, Reads a C++ 11 string, splits each character into two pairs of 4 bits each, and performs Hamming (7, 4) error coding. 
+Encode Hamming 347 codes, Reads a C++ 11 string, splits each character into two pairs of 4 bits each, and performs Hamming (7, 4) error coding. Each 4-\/bit nibble gets exanded to a byte, so the message size doubles, when you include the parity bit. In the future, if the message size is some multiple of eight, we might be safely discard some bits. 
 
 
 \begin{DoxyParams}{Parameters}

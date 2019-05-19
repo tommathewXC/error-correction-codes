@@ -135,7 +135,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a43d67d5174ff6a829a3fa093e447e538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode Hamming 347 codes, Reads a C++ 11 string and assumes that each character has 7 bits of hamming (7, 4) and 1 padding bit. The 7 bits are assume to be an encoded form of an original message which contained 4 bits.  <a href="#a43d67d5174ff6a829a3fa093e447e538">More...</a><br /></td></tr>
 <tr class="separator:a43d67d5174ff6a829a3fa093e447e538"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12b14f4b1510903fa8aa546d6c6c91dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_encoded_message.html">EncodedMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#a12b14f4b1510903fa8aa546d6c6c91dc">encode_hamming347</a> (const std::string &amp;input)</td></tr>
-<tr class="memdesc:a12b14f4b1510903fa8aa546d6c6c91dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode Hamming 347 codes, Reads a C++ 11 string, splits each character into two pairs of 4 bits each, and performs Hamming (7, 4) error coding.  <a href="#a12b14f4b1510903fa8aa546d6c6c91dc">More...</a><br /></td></tr>
+<tr class="memdesc:a12b14f4b1510903fa8aa546d6c6c91dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode Hamming 347 codes, Reads a C++ 11 string, splits each character into two pairs of 4 bits each, and performs Hamming (7, 4) error coding. Each 4-bit nibble gets exanded to a byte, so the message size doubles, when you include the parity bit. In the future, if the message size is some multiple of eight, we might be safely discard some bits.  <a href="#a12b14f4b1510903fa8aa546d6c6c91dc">More...</a><br /></td></tr>
 <tr class="separator:a12b14f4b1510903fa8aa546d6c6c91dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5c9b63cb037fb89f37d204cb32d082d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_encoded_message.html">EncodedMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_encoder.html#aa5c9b63cb037fb89f37d204cb32d082d">encode</a> (const std::string &amp;input, const EncodingType &amp;encType)</td></tr>
 <tr class="memdesc:aa5c9b63cb037fb89f37d204cb32d082d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode a given message with the chosen error coding scheme.  <a href="#aa5c9b63cb037fb89f37d204cb32d082d">More...</a><br /></td></tr>
@@ -438,7 +438,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Encode Hamming 347 codes, Reads a C++ 11 string, splits each character into two pairs of 4 bits each, and performs Hamming (7, 4) error coding. </p>
+<p>Encode Hamming 347 codes, Reads a C++ 11 string, splits each character into two pairs of 4 bits each, and performs Hamming (7, 4) error coding. Each 4-bit nibble gets exanded to a byte, so the message size doubles, when you include the parity bit. In the future, if the message size is some multiple of eight, we might be safely discard some bits. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>A constant string that doesn't change </td></tr>

@@ -21,26 +21,15 @@ int main( const int argc, const char ** arguments ){
   int port = -1;
   int mode = 0;
   int coding = 1;
-  std::string inputMessage = "default-message";
-  for( int i=0; i < argc; i++ ){
-    if( i < argc - 1 ){
-      const std::string key = arguments[i];
-      const std::string val = arguments[i+1];
-      if( key == "--p" ){
-        port = g.fast_atoi( val.c_str() );
-      }
-      if( key == "--m" ){
-        mode = g.fast_atoi( val.c_str() );
-      }
-      if( key == "--i" ){
-        inputMessage = "";
-        inputMessage = std::string( val.c_str() );
-      }
-      if( key == "--c" ){
-        coding = g.fast_atoi( val.c_str() );
-      }
-    }
-  }
+  std::unordered_map< std::string, std::string> kv;
+  kv["--i"] = "default-message";
+  kv["--m"] = "0";
+  kv["--c"] = "1";
+  kv["--p"] = "8000";
+  g.cli( argc, arguments, kv );
+  port = g.fast_atoi( kv["--p"].c_str() );
+  mode = g.fast_atoi( kv["--m"].c_str() );
+  coding = g.fast_atoi( kv["--c"].c_str() );
   if( port == -1 ){
     std::cout << "No port selected. ex. --p 8888" << std::endl;
     return 1;
@@ -59,15 +48,8 @@ int main( const int argc, const char ** arguments ){
   if( mode == 1  ){
     UdpClient uClient = UdpClient( port );
     uClient.setLabel( "UdpClient" );
-    std::string outp = enc.encodeToString( inputMessage, (EncodingType) coding );
-    char * buffer = (char * ) malloc(  outp.size() );
-    outp.copy( buffer, outp.size() );
-    if( uClient.send( outp ) ){
-      std::cout << "UDP transmission worked" << std::endl;
-    }else{
-      std::cout << "UDP transmission failed" << std::endl;
-    }
-    free(buffer);
+    const std::string outp = enc.encodeToString( kv["--i"], (EncodingType) coding );
+    uClient.send( outp );
   }else if( mode == 2 ){
     UdpServer uServer = UdpServer( port );
     uServer.serve();

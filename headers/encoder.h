@@ -6,7 +6,7 @@
 
 #define MESSAGE_SIZE 4096
 
-extern const int CodesSupported = 3;
+const int CodesSupported = 3;
 
 /**
  * @brief The enum of the encoding type

@@ -64,6 +64,15 @@
        * @return std::vector<std::string>
        */
       std::vector<std::string> split( const std::string &input, const char delimiter );
+
+      /**
+       * @brief           Extract key value pairs from the command line and pass it into a string map
+       * 
+       * @param argc 
+       * @param arguments 
+       * @param kv 
+       */
+      void cli( const int argc, const char ** arguments, std::unordered_map< std::string, std::string> &kv );
   };
 
 #endif

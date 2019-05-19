@@ -1,0 +1,91 @@
+This project implements error codes in C++ 11 as an exercise.
+
+\subsection*{Error Detection and Correction}
+
+Error codes are algorithms that ensure the integrity of binary data. When data travels through arbitrary media through space (like in communication systems), or through time (like in storage/database systems), there is always the possibility that some of the information bits could get corrupted and flipped. With the use of error correction algorithms, it is possible to add some extra bits of information to the raw data so that if some corruptions were to occur, they can be detected. Using these extra error correction bits, it can also be possible to correct any errors that may have occured, and retrieve the uncorrupted raw data.
+
+\subsubsection*{Implementation\+:}
+
+In this implementation, the communication medium is a U\+DP channel. The product of this project is one executable -\/ error\+\_\+coder. This executable can be used either as a client or blocking server. The udp client takes string inputs from the command line, encodes them according to a user-\/specified error\+\_\+coding algorithm, and transmits them to the U\+DP server.
+
+The U\+DP server, if alive, will recieve the coded message, detect the chosen error coding scheme, and then decode the original message. This decoded message is written to the console.
+
+The following are the implemented error detection/correction codes
+
+
+\begin{DoxyItemize}
+\item {\tt Hamming (7, 3)}
+
+Currently only detecting but not correcting errors.
+\end{DoxyItemize}
+
+\subsection*{Getting Started}
+
+\subsubsection*{Core Services}
+
+The core error coding services come from the executable \char`\"{}error\+\_\+coder\char`\"{}. There is a python script \char`\"{}kickoff\char`\"{} that delegates some C\+LI calls. You can start and stop the server with kickoff. But sending messages to the U\+DP server has to be done through the executble.
+
+The {\bfseries kickoff} script acts as a clean command line interface to error\+\_\+coder. The following are the supported commands\+:
+
+
+\begin{DoxyItemize}
+\item --start [ --s, -\/s, -\/start]\+: A flag requesting to start the server.
+\item --stop [ --e, -\/e, -\/end, --end]\+: A flag requesting to stop the server.
+\item --p\+: The port to run the server and client on.
+\item --l [-\/l, --logfile, -\/logile]\+: The path to the logfile where the output from the U\+DP server would go.
+\item --c [--clear]\+: A flag requesting to clear the U\+DP server logfile.
+\end{DoxyItemize}
+
+The {\bfseries error\+\_\+coder} application also accepts command-\/line inputs. The following are the supported commands\+:
+
+
+\begin{DoxyItemize}
+\item --p\+: The port to run the server/client on.
+\item --m\+: A number signifying which mode to run error\+\_\+coder in. 1 = Client, 2 = Server.
+\item --i\+: A string/sequence of characters\+: The string message to encode and transmit if running error\+\_\+coder in client mode.
+\item --c\+: The error code to use. 1 = clear text. 2 = Hamming(7,4)
+\end{DoxyItemize}
+
+\subsubsection*{Installing}
+
+make pre -\/ Install all the needed dependancies
+
+make clean all -\/ Build the project
+
+sudo make install -\/ install error\+\_\+coder to /usr/local/bin
+
+\subsection*{Examples}
+
+\subsubsection*{Starting the U\+DP listener server on 8888 (background + logfile)}
+
+./kickoff --start --p 8888
+
+Note that even though error\+\_\+coder \textquotesingle{}s U\+DP server is blocking, calling it through kickoff runs it in the background and traps the logs to a configurable path (Defaults to /tmp/error\+\_\+correction\+\_\+server.log)
+
+\subsubsection*{Starting the U\+DP listener server on 8888 (foreground + console logs)}
+
+error\+\_\+coder --p 8888 --m 2
+
+\subsubsection*{Ending the U\+DP listener server (non blocking)}
+
+./kickoff --stop
+
+\subsubsection*{Send an error encoded message to the U\+DP server -\/ Clear (blocking)}
+
+This is an example of sending the phrase \char`\"{}\+Hola\char`\"{} to the U\+DP server where each byte is sent without encoding.
+
+error\+\_\+coder --p 8888 --m 1 --c 1 --i Hola
+
+\subsubsection*{Send an error encoded message to the U\+DP server -\/ Hamming (blocking)}
+
+This is an example of sending the phrase \char`\"{}\+Hello\char`\"{} to the U\+DP server where each byte is encoded with Hamming (7, 4) coding
+
+error\+\_\+coder --p 8888 --m 1 --c 2 --i Hello
+
+\subsubsection*{Clear the log files (blocking)}
+
+./kickoff --clear
+
+\subsubsection*{Tail the log files}
+
+tail -\/f /tmp/error\+\_\+correction\+\_\+server.log 

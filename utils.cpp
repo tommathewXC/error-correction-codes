@@ -56,3 +56,19 @@ std::unordered_map< std::string, std::string> Bilbo::getKeyValuePairs( const std
   }
   return kv;
 }
+
+void Bilbo::cli( const int argc, const char ** arguments, std::unordered_map< std::string, std::string> &kv ){
+  const std::string cmdpattern = "--";
+  std::string key, value;
+  for( int i=0; i < argc; i++ ){
+    if( i < argc - 1 ){
+      key.clear();
+      key = arguments[i];
+      if( key.find(cmdpattern) != std::string::npos ){
+        value.clear();
+        value = arguments[i+1];
+        kv[ key ] = value;
+      }
+    }
+  }
+}

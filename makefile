@@ -5,6 +5,10 @@ pre:
 	sudo apt-get install graphviz
 	sudo apt-get install doxygen-gui
 
+tester:
+	@echo "Building test app"
+	@g++ test.cpp utils.cpp -o exe/testerror -std=c++11
+
 clean:
 	@rm -rf exe/*
 

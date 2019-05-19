@@ -19,13 +19,34 @@ int \textbf{ fast\+\_\+atoi} (const char $\ast$str)
 std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ \textbf{ get\+Key\+Value\+Pairs} (const std\+::string \&input, const char split\+Token, const char equality)
 \begin{DoxyCompactList}\small\item\em Get the Key Value Pairs. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::string $>$ \textbf{ split} (const std\+::string \&input, const char delimiter)
-\begin{DoxyCompactList}\small\item\em Split a string by a delimiter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Split a string by a delimiter. \end{DoxyCompactList}\item 
+void \textbf{ cli} (const int argc, const char $\ast$$\ast$arguments, std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ \&kv)
+\begin{DoxyCompactList}\small\item\em Extract key value pairs from the command line and pass it into a string map. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 General utilties. 
 
 \subsection{Member Function Documentation}
+\mbox{\label{class_bilbo_ae13bf7c5b889b3fdf8077fa9733ea1d7}} 
+\index{Bilbo@{Bilbo}!cli@{cli}}
+\index{cli@{cli}!Bilbo@{Bilbo}}
+\subsubsection{cli()}
+{\footnotesize\ttfamily void Bilbo\+::cli (\begin{DoxyParamCaption}\item[{const int}]{argc,  }\item[{const char $\ast$$\ast$}]{arguments,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ \&}]{kv }\end{DoxyParamCaption})}
+
+
+
+Extract key value pairs from the command line and pass it into a string map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & \\
+\hline
+{\em arguments} & \\
+\hline
+{\em kv} & \\
+\hline
+\end{DoxyParams}
 \mbox{\label{class_bilbo_a4c567f47e8f57e753b18b5ed8fcdba8b}} 
 \index{Bilbo@{Bilbo}!fast\+\_\+atoi@{fast\+\_\+atoi}}
 \index{fast\+\_\+atoi@{fast\+\_\+atoi}!Bilbo@{Bilbo}}
