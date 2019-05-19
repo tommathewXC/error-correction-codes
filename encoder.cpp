@@ -34,7 +34,6 @@ EncodedMessage Encoder::decomposeFromBuffer( const char * buffer, const int & bu
   Bilbo b = Bilbo();
   std::string messageSize = "";
   int mSize = 0;
-  int markoff = 0;
   bool foundSize = false;
   bool foundMessage = false;
   for( int i =0; i < bufferSize; i++ ){
