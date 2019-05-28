@@ -14,7 +14,7 @@ clean:
 
 build:
 	@echo "Building error_coder..."
-	@g++  main.cpp encoder.cpp udpclient.cpp udpserver.cpp utils.cpp -std=c++11 -o exe/error_coder
+	@g++  main.cpp encoder.cpp udpclient.cpp udpserver.cpp utils.cpp hamming.cpp -std=c++11 -o exe/error_coder
 
 install:
 	@cp exe/error_coder /usr/local/bin/error_coder
